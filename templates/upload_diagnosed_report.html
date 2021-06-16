@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../static/info_form.css">
+    <title>Patient Details</title>
+</head>
+
+<body>
+    <header>
+        <div class="div_wrapper">
+            <div class="div_logo">
+                <img src="https://drive.google.com/thumbnail?id=1VWjCXgibmcCG2n0_uxMj0lDH7gp_bK7-" id="div_logoImage"
+                    alt="">
+                <h2 id="div_logoHeading">Central Medical Vault for XYZ Hospital</h2>
+            </div>
+            <ul class="div_nav-area">
+            <li><a href="https://20.193.232.239:5000/doctor/login">Home</a></li>
+<li><a href="https://20.193.232.239:5000/doctor/viewRequest">View Requests</a></li>
+<li><a href="https://20.193.232.239:5000/doctor/uploadreport">Upload Diagnosed Reports</a></li>
+              
+                <!-- <li><a href="#">Claim</a></li> -->
+            </ul>
+        </div>
+    </header>
+    <div class="wrapper">
+        <div class="registration_form">
+            <div class="title">
+                Upload Diagnosis
+            </div>
+
+            <form action="https://20.193.232.239:5000/doctor/send/report" method="POST"> 
+                <div class="form_wrap">
+                
+                    <div class="input_wrap">
+                        <label for="uid">Unique Medical ID of Patient</label>
+                        <input type="text" id="uid" name = "UniqueMedicalID">
+                    </div>
+                   <div class="input_wrap">
+                        <label for="uid">Patient FHIR ID</label>
+                        <input type="text" id="uid" name = "FHIRID">
+                    </div>
+                    
+                    <div class="input_wrap">
+                        <label>Hospitalization Required?</label>
+                        <ul>
+                            <li>
+                                <label class="radio_wrap">
+                                    <input type="radio" name="bedBooking" value="yes" class="input_radio" >
+                                    <span>Yes</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="radio_wrap">
+                                    <input type="radio" name="bedBooking" value="no" class="input_radio" checked >
+                                    <span>No</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="input_wrap">
+                        <label for="doctor">Name of Doctor </label>
+                        <input type="text" id="doctor" name = "doctorName">
+                    </div>
+
+                    <div class="input_wrap">
+                        <label for="prescription">Prescription</label>
+                        <input type="text" id="prescription" name = "prescription">
+                    </div>
+
+                  
+                    
+                    
+                    
+                   
+                   
+                    
+                    <div class="input_wrap">
+                        <input type="submit" value="SEND" class="submit_btn">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

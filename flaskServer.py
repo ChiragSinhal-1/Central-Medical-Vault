@@ -7,6 +7,7 @@ import json
 app = Flask(__name__)
 
 
+
 users = {}
 
 @app.route('/')
@@ -83,12 +84,24 @@ def getAccessToken():
     
 @app.route('/patient/new/request',methods = ['GET','POST'])
 def patientNewRequest():
+    
+    
+    
+    
+    
+    global familyName
     familyName = request.form.get('lname')
+    global givenName
     givenName = request.form.get('fname')
+    global uid
     uid = request.form.get('UniqueMedicalID')
+    global ctScore
     ctScore = request.form.get('CTScore')
+    global rtpcrScore
     rtpcrScore = request.form.get('RTPCRScore')
+    global hospitalName
     hospitalName = request.form.get('hospitalName')
+    
     doctorName = request.form.get('preferedDoctor')
     
     
@@ -153,6 +166,7 @@ def updatePersonalInfo():
 @app.route('/patient/diagnosedreports')
 def diagnosedReports():
     return render_template('new.html')
+    
 
 @app.route('/doctor/login')
 def  doctorLogin():
@@ -162,13 +176,69 @@ def  doctorLogin():
 def updateProfessionalInfo():
     return render_template('doctor_professional_info.html')
 
-@app.route('/doctor/request')
+@app.route('/doctor/viewRequest')
 def viewRequest():
-    return "Work in Progress"
+    return render_template('new.html')
 
 @app.route('/doctor/uploadreport')
 def uploadReport():
-    return "Work in Progress"
+    return render_template('upload_diagnosed_report.html')
+    
+@app.route('/doctor/send/report',methods = ['GET','POST', 'PUT'])
+def sendDiagnosedReport():
+    UID = request.form.get('UniqueMedicalID')
+    DoctorName = request.form.get('doctorName')
+    prescription = request.form.get('prescription')
+    bedBooking = request.form.get('bedBooking')
+    fhirID = request.form.get('FHIRID')
+    
+    
+    print(familyName)
+    
+    data = {
+    "resourceType": "Patient",
+    "id": fhirID,
+    "active": True,
+    "name": [
+        {
+            "use": "official",
+            "family": familyName,
+            "given": [
+                
+                givenName
+            ]
+        },
+        {
+            "use": "usual",
+            "given": [
+                f"UID: {uid}",
+                f"CT Score: {ctScore}",
+                f"RTPCR Score: {rtpcrScore}",
+                f"Hospital Name: {hospitalName}",
+                f"Doctor Name: {DoctorName}",
+                "Diagnosis = Done",
+                f"Prescription: {prescription}",
+                f"Bed Requirement: {bedBooking} "
+            ]
+        }
+    ],
+    "gender": "male",
+    "birthDate": "1960-12-25"
+    
+}   
+
+
+    data = json.dumps(data)
+
+    bearerValue = f'Bearer {accessToken}'
+    
+    header = {'Authorization': bearerValue, 'Content-Type': 'application/json; charset=UTF-8'}
+
+    accessTokenName = "Shubham Garg"
+    response = requests.put(f"https://cmv.azurehealthcareapis.com/Patient/{fhirID}",headers=header,data=data)
+    
+    print(response.json())
+    return "Success"
 
 @app.route('/doctor/medicalstatistics')
 def indMedicalStats():

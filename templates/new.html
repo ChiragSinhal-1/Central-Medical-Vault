@@ -147,45 +147,31 @@
             " (" +
             e.resource.id +
             ")" +
+            ", " +
             e.resource.name[1].given[0] + 
+            ", " +
             e.resource.name[1].given[1] +
+            ", " +
             e.resource.name[1].given[2] +
+            ", " +
             e.resource.name[1].given[3] +
+            ", " +
             e.resource.name[1].given[4] +
-            e.resource.name[1].given[5]
+            ", " +
+            e.resource.name[1].given[5] +
+            ", " +
+            e.resource.name[1].given[6] +
+            ", " +
+            e.resource.name[1].given[7]
             ;
         });
         patientListHtml += "</ol>";
         document.getElementById("patientTable").innerHTML = patientListHtml;
       }
       
-      
-      
-//    async function sendAccessToken(token) {
-//        let data = {"Access Token": token};
-//        console.log(data);
-//        const response = await fetch("https://20.193.232.239:5000/getAccessToken", {
-//        method: "POST",
-//        headers: {
-//          'Content-Type':'application/json'
-//          },
-//        body: JSON.stringify(data)
-//        });
-//        const resData = await response.json;
-//        console.log("Successsful Post")
-//        console.log(resData);
-//      }
 
 
 
-//     function sendAccessToken(token)
-//    {
-//        console.log(token)
-//        fetch("https://20.193.232.239"+":5000/sendAccessToken?token="+"{{token}}")
-//        .then((response) =>{return response.json()})
-//        .then((data)=>{console.log(data);
-//})
-//}
 
     function sendAccessToken(token)
     {
