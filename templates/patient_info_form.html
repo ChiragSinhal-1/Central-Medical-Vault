@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../static/info_form.css">
+    <title>Patient Details</title>
+</head>
+
+<body>
+    <header>
+        <div class="div_wrapper">
+            <div class="div_logo">
+                <img src="https://drive.google.com/thumbnail?id=1VWjCXgibmcCG2n0_uxMj0lDH7gp_bK7-" id="div_logoImage"
+                    alt="">
+                <h2 id="div_logoHeading">Central Medical Vault for Patients</h2>
+            </div>
+            <ul class="div_nav-area">
+                <li><a href="https://20.193.232.239:5000/patient/login">Home</a></li>
+                <li><a href="https://20.193.232.239:5000/patient/request">New Request</a></li>
+                <li><a href="https://20.193.232.239:5000/patient/diagnosedreports">Diagnosed Reports</a></li>
+                <li><a href="https://20.193.232.239:5000/patient/claim">Insurance Claim</a></li>
+                <!-- <li><a href="#">Claim</a></li> -->
+            </ul>
+        </div>
+    </header>
+    <div class="wrapper">
+        <div class="registration_form">
+            <div class="title">
+                Make a Request
+            </div>
+
+            <form action="https://20.193.232.239:5000/patient/new/request" method="POST"> 
+                <div class="form_wrap">
+                <div class="input_grp">
+                        <div class="input_wrap">
+                            <label for="fname">First Name</label>
+                            <input type="text" id="fname" name = "fname">
+                        </div>
+                        <div class="input_wrap">
+                            <label for="lname">Last Name</label>
+                            <input type="text" id="lname" name = "lname">
+                        </div>
+                    </div>
+                    <div class="input_wrap">
+                        <label for="uid">Unique Medical ID</label>
+                        <input type="text" id="uid" name = "UniqueMedicalID">
+                    </div>
+                    <div class="input_grp">
+                        <div class="input_wrap">
+                            <label for="cynumber">CT Chest Score</label>
+                            <input type="number" id="ctnumber" name = "CTScore">
+                        </div>
+                        <div class="input_wrap">
+                            <label for="rtpcr">RTPCR Score</label>
+                            <input type="number" id="rtpcr" name = "RTPCRScore">
+                        </div>
+                    </div>
+                    
+                    <div class="input_wrap">
+                        <label for="hospital">Name of Hospital </label>
+                        <input type="text" id="hospital" name = "hospitalName">
+                    </div>
+                    
+                    <div class="input_wrap">
+                        <label for="doctor">Name of Prefered Doctor </label>
+                        <input type="text" id="doctor" name = "preferedDoctor">
+                    </div>
+
+                    <div class="input_wrap">
+                        <label for="pref">Restrict to Preference </label>
+                        <input type="checkbox" id="pref">
+                    </div>
+
+                    <div class="input_wrap">
+                        <label>Action</label>
+                        <ul>
+                            <li>
+                                <label class="radio_wrap">
+                                    <input type="radio" name="diagnosisaction" value="report" class="input_radio" checked>
+                                    <span>Prescribtion Only</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="radio_wrap">
+                                    <input type="radio" name="diagnosisaction" value="bed" class="input_radio">
+                                    <span>Book a Bed</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="input_wrap">
+                        <label>Do You have throat infection?</label>
+                        <ul>
+                            <li>
+                                <label class="radio_wrap">
+                                    <input type="radio" name="throatinfection" value="yes" class="input_radio" >
+                                    <span>Yes</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="radio_wrap">
+                                    <input type="radio" name="throatinfection" value="no" class="input_radio" checked>
+                                    <span>No</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="input_wrap">
+                        <label>Do you feel continous headache or fever?</label>
+                        <ul>
+                            <li>
+                                <label class="radio_wrap">
+                                    <input type="radio" name="headache" value="yes" class="input_radio" >
+                                    <span>Yes</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="radio_wrap">
+                                    <input type="radio" name="headache" value="no" class="input_radio" checked >
+                                    <span>No</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="input_wrap">
+                        <label>Do you experiance Loss of Taste and Smell?</label>
+                        <ul>
+                            <li>
+                                <label class="radio_wrap">
+                                    <input type="radio" name="lossofsense" value="yes" class="input_radio" >
+                                    <span>Yes</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="radio_wrap">
+                                    <input type="radio" name="lossofsense" value="no" class="input_radio" checked >
+                                    <span>No</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="input_wrap">
+                        <label>Do you experiance trouble in breathing?</label>
+                        <ul>
+                            <li>
+                                <label class="radio_wrap">
+                                    <input type="radio" name="breathing" value="yes" class="input_radio" >
+                                    <span>Yes</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="radio_wrap">
+                                    <input type="radio" name="breathing" value="no" class="input_radio" checked >
+                                    <span>No</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="input_wrap">
+                        <label for="symptomsdate">How many days before symptoms appeared?</label>
+                        <input type="number" id="symptomsdate">
+                    </div>
+                    <div class="input_wrap">
+                        <label>Have you been in contact with a covid patient?</label>
+                        <ul>
+                            <li>
+                                <label class="radio_wrap">
+                                    <input type="radio" name="contactwithcovid" value="yes" class="input_radio" >
+                                    <span>Yes</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="radio_wrap">
+                                    <input type="radio" name="contactwithcovid" value="no" class="input_radio" checked >
+                                    <span>No</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="input_wrap">
+                        <input type="submit" value="SEND" class="submit_btn">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

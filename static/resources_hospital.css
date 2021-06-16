@@ -1,0 +1,26 @@
+.allData:hover {background-color:cadetblue;
+color: white;}
+
+th, td {
+    padding: 15px;
+  }
+
+.tableHeading {
+    background-color: #5ce9e9 ;
+    color: red;
+}
+
+.allColumns {
+    background-color: #060529 ;
+    color: white;
+}
+#RH {
+    background-color: aliceblue;
+    padding: 5%;
+}
+
+#IHR {
+    background-color: aliceblue;
+    padding: 10%;
+}
+/* tr:nth-child(even) {background-color: #f2f2f2;} */

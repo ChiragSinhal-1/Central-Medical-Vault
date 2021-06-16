@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../static/patient_info_form.css">
+    <title>Patient Details</title>
+</head>
+
+<body>
+    <header>
+        <div class="div_wrapper">
+            <div class="div_logo">
+                <img src="https://drive.google.com/thumbnail?id=1VWjCXgibmcCG2n0_uxMj0lDH7gp_bK7-" id="div_logoImage"
+                    alt="">
+                <h2 id="div_logoHeading">Central Medical Vault for Patients</h2>
+            </div>
+            <ul class="div_nav-area">
+                <li><a href="https://20.193.232.239:5000/patient/login">Home</a></li>
+                <li><a href="https://20.193.232.239:5000/patient/request">New Request</a></li>
+                <li><a href="https://20.193.232.239:5000/patient/diagnosedreports">Diagnosed Reports</a></li>
+                <li><a href="https://20.193.232.239:5000/patient/claim">Insurance Claim</a></li>
+                <!-- <li><a href="#">Claim</a></li> -->
+            </ul>
+        </div>
+    </header>
+    <div class="wrapper">
+        <div class="registration_form">
+            <div class="title">
+                Update Personal Information
+            </div>
+
+            <form>
+                <div class="form_wrap">
+                    <!-- <div class="input_grp">
+                        <div class="input_wrap">
+                            <label for="fname">Full Name</label>
+                            <input type="text" id="fname">
+                        </div>
+                        <div class="input_wrap">
+                            <label for="mobile">Mobile Number</label>
+                            <input type="number" id="mobile">
+                        </div>
+                    </div> -->
+                    <div class="input_wrap">
+                        <label for="fname">Full Name</label>
+                        <input type="text" id="fname">
+                    </div>
+
+                    <div class="input_grp">
+
+                        <div class="input_wrap">
+                            <label for="mobile">Mobile Number</label>
+                            <input type="number" id="mobile">
+                        </div>
+                        <div class="input_wrap">
+                            <label for="age">Age</label>
+                            <input type="number" id="age">
+                        </div>
+
+
+                    </div>
+                    <div class="input_grp">
+
+                        <div class="input_wrap">
+                            <label for="mobile">Temprature in celcius</label>
+                            <input type="number" id="mobile">
+                        </div>
+                        <div class="input_wrap">
+                            <label for="SpO2">SpO2 Level</label>
+                            <input type="number" id="SpO2">
+                        </div>
+                        
+
+
+                    </div>
+                    <!-- <div class="input_wrap">
+                        <label for="temprature">Temprature in degree Celcius</label>
+                        <input type="text" id="temprature">
+                    </div> -->
+
+                    <div class="input_wrap">
+                        <label>Gender</label>
+                        <ul>
+                            <li>
+                                <label class="radio_wrap">
+                                    <input type="radio" name="gender" value="male" class="input_radio" checked>
+                                    <span>Male</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="radio_wrap">
+                                    <input type="radio" name="gender" value="female" class="input_radio">
+                                    <span>Female</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="input_wrap">
+                        <label>Have you Taken the Vaccination</label>
+                        <ul>
+                            <li>
+                                <label class="radio_wrap">
+                                    <input type="radio" name="vaccinated" value="yes" class="input_radio" checked>
+                                    <span>Yes</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="radio_wrap">
+                                    <input type="radio" name="vaccinated" value="no" class="input_radio">
+                                    <span>No</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="input_wrap">
+                        <label for="symptoms">List down the Symptoms(if any)</label>
+                        <input type="text" id="symptoms" placeholder="Ex: Fever, Loss of Taste and Smell etc">
+                    </div>
+                    <div class="input_wrap">
+                        <label for="disease">List down the Diseases(if any)</label>
+                        <input type="text" id="disease" placeholder="Ex: Diabetes, Heart Disease, Lung Disease etc">
+                    </div>
+                    <div class="input_wrap">
+                        <input type="submit" value="Update" class="submit_btn">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

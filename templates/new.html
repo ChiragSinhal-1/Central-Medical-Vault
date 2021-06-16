@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FHIR Patient browser sample app</title>
+    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/msal.js"></script>
+  </head>
+
+  <body>
+    <div class="leftContainer">
+      <p id="WelcomeMessage">
+        Welcome to the FHIR Patient browsing sample Application
+      </p>
+      <button id="SignIn" onclick="signIn()">Sign In</button>
+    </div>
+
+    <div id="patientTable"></div>
+
+    <script>
+      var msalConfig = {
+        auth: {
+          clientId: "66c35cb2-9e60-49a3-b46f-5be8ae11be44",
+          authority:
+            "https://login.microsoftonline.com/1f74c500-3b06-4f01-9beb-9edf9c1decfa",
+        },
+        cache: {
+          cacheLocation: "localStorage",
+          storeAuthStateInCookie: true,
+        },
+      };
+      
+      var FHIRConfig = {
+        FHIRendpoint: "https://cmv.azurehealthcareapis.com",
+      };
+      var requestObj = {
+        scopes: ["https://cmv.azurehealthcareapis.com/user_impersonation"],
+      };
+
+      function authRedirectCallBack(error, response) {
+        if (error) {
+          console.log(error);
+        } else {
+          if (response.tokenType === "access_token") {
+            callFHIRServer(
+              FHIRConfig.FHIRendpoint + "/Patient",
+              "GET",
+              null,
+              response.accessToken,
+              FHIRCallback
+            );
+          }
+          
+        }
+      }
+
+      var myMSALObj = new Msal.UserAgentApplication(msalConfig);
+      myMSALObj.handleRedirectCallback(authRedirectCallBack);
+
+      function signIn() {
+        myMSALObj
+          .loginPopup(requestObj)
+          .then(function (loginResponse) {
+            showWelcomeMessage();
+            acquireTokenPopupAndCallFHIRServer();
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+
+      function showWelcomeMessage() {
+        var divWelcome = document.getElementById("WelcomeMessage");
+        divWelcome.innerHTML =
+          "Welcome " +
+          " to FHIR Patient Browsing Portal";
+        loginbutton = document.getElementById("SignIn");
+        loginbutton.style = "Display: none";
+        //loginbutton.setAttribute("onclick", "signOut()");
+      }
+
+      function signOut() {
+        myMSALObj.logout();
+      }
+
+      function acquireTokenPopupAndCallFHIRServer() {
+        myMSALObj
+          .acquireTokenSilent(requestObj)
+          .then(function (tokenResponse) {
+            callFHIRServer(
+              FHIRConfig.FHIRendpoint + "/Patient",
+              "GET",
+              null,
+              tokenResponse.accessToken,
+              FHIRCallback
+            );
+            
+          })
+          .catch(function (error) {
+            console.log(error);
+            if (requiresInteraction(error.errorCode)) {
+              myMSALObj
+                .acquireTokenPopup(requestObj)
+                .then(function (tokenResponse) {
+                  callFHIRServer(
+                    FHIRConfig.FHIRendpoint + "/Patient",
+                    "GET",
+                    null,
+                    tokenResponse.accessToken,
+                    FHIRCallback
+                  );
+                  
+                })
+                .catch(function (error) {
+                  console.log(error);
+                });
+            }
+          });
+      }
+
+      function callFHIRServer(theUrl, method, message, accessToken, callBack) {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200)
+            callBack(JSON.parse(this.responseText));
+        };
+        xmlHttp.open(method, theUrl, true);
+        xmlHttp.setRequestHeader(
+          "Content-Type",
+          "application/json;charset=UTF-8"
+        );
+        xmlHttp.setRequestHeader("Authorization", "Bearer " + accessToken);
+        console.log("HELLO");
+        
+        
+        xmlHttp.send(message);
+        sendAccessToken(accessToken);
+       
+      }
+
+      function FHIRCallback(data) {
+        patientListHtml = "<ol>";
+        data.entry.forEach(function (e) {
+          patientListHtml +=
+            "<li>" +
+            e.resource.name[0].family +
+            ", " +
+            e.resource.name[0].given +
+            " (" +
+            e.resource.id +
+            ")" +
+            e.resource.name[1].given[0] + 
+            e.resource.name[1].given[1] +
+            e.resource.name[1].given[2] +
+            e.resource.name[1].given[3] +
+            e.resource.name[1].given[4] +
+            e.resource.name[1].given[5]
+            ;
+        });
+        patientListHtml += "</ol>";
+        document.getElementById("patientTable").innerHTML = patientListHtml;
+      }
+      
+      
+      
+//    async function sendAccessToken(token) {
+//        let data = {"Access Token": token};
+//        console.log(data);
+//        const response = await fetch("https://20.193.232.239:5000/getAccessToken", {
+//        method: "POST",
+//        headers: {
+//          'Content-Type':'application/json'
+//          },
+//        body: JSON.stringify(data)
+//        });
+//        const resData = await response.json;
+//        console.log("Successsful Post")
+//        console.log(resData);
+//      }
+
+
+
+//     function sendAccessToken(token)
+//    {
+//        console.log(token)
+//        fetch("https://20.193.232.239"+":5000/sendAccessToken?token="+"{{token}}")
+//        .then((response) =>{return response.json()})
+//        .then((data)=>{console.log(data);
+//})
+//}
+
+    function sendAccessToken(token)
+    {
+      
+        fetch("https://" +"20.193.232.239"+":5000/getAccessToken?".concat("&address=",token))
+        .then((response) =>{return response.json()})
+        .then((data)=>{console.log(data);});
+    }
+
+    </script>
+  </body>
+</html>
