@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../static/info_form.css">
+    <title>Insurance Approval</title>
+</head>
+
+<body>
+    <header>
+        <div class="div_wrapper">
+            <div class="div_logo">
+                <img src="https://drive.google.com/thumbnail?id=1VWjCXgibmcCG2n0_uxMj0lDH7gp_bK7-" id="div_logoImage"
+                    alt="">
+                <h2 id="div_logoHeading">Central Medical Vault for Patients</h2>
+            </div>
+            <ul class="div_nav-area">
+            <li><a href="https://20.193.232.239:5000/patient/login">Home</a></li>
+              
+                <!-- <li><a href="#">Claim</a></li> -->
+            </ul>
+        </div>
+    </header>
+    <div class="wrapper">
+        <div class="registration_form">
+            <div class="title">
+                Request for Bed
+            </div>
+
+            <form action="https://20.193.232.239:5000/patient/bed/booking" method="POST"> 
+                <div class="form_wrap">
+                
+                    <div class="input_wrap">
+                        <label for="uid">Unique Medical ID of Patient</label>
+                        <input type="text" id="uid" name = "UniqueMedicalID">
+                    </div>
+                   
+                    <div class="input_wrap">
+                        <label>Type of bed</label>
+                        <ul>
+                            <li>
+                                <label class="radio_wrap">
+                                    <input type="radio" name="bedType" value="Normal" class="input_radio" >
+                                    <span>Normal</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="radio_wrap">
+                                    <input type="radio" name="bedType" value="ICU" class="input_radio" checked >
+                                    <span>ICU</span>
+                                </label>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="input_wrap">
+                        <label for="hospitalName">Hospital Name</label>
+                        <input type="text" id="hospitalName" name = "hospitalName">
+                    </div>
+
+                    
+
+                  
+                    
+                    
+                    
+                   
+                   
+                    
+                    <div class="input_wrap">
+                        <input type="submit" value="SEND" class="submit_btn">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

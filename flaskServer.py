@@ -67,7 +67,13 @@ def patientLogin():
 def patientInfoForm():
     return render_template('patient_info_form.html')
 
-
+@app.route('/patient/bedBooking')
+def patientBedBooking():
+    return render_template('patient_bed_booking.html')
+    
+@app.route('/patient/bedBooking/status')
+def bedBookingStatus():
+    return render_template('bed_booking_status.html')
 
 @app.route('/getAccessToken',methods = ['GET','POST'])
 
@@ -249,6 +255,10 @@ def indMedicalStats():
 def insuranceHome():
   return render_template('insurance_home.html')
   
+  
+@app.route('/insurance/approveRequest')
+def approveClaimRequest():
+  return render_template('approve_insurance_claim.html')
   
 
 
