@@ -34,7 +34,7 @@ def login():
     
     elif uid in users and str(uid).startswith("i"):
         if users[uid]["password"] == login_pwd:
-            return render_template('patient_home.html')
+            return render_template('insurance_home.html')
         else:
             return "Invalid Credentials"
     else:
@@ -243,6 +243,13 @@ def sendDiagnosedReport():
 @app.route('/doctor/medicalstatistics')
 def indMedicalStats():
     return render_template('individual_hospital_resources.html')
+
+
+@app.route('/insurance/login')
+def insuranceHome():
+  return render_template('insurance_home.html')
+  
+  
 
 
 if __name__ == "__main__":
