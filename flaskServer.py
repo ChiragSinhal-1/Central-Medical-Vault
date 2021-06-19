@@ -160,7 +160,8 @@ def patientNewRequest():
 
 @app.route('/patient/claim')
 def patientInsuranceClaim():
-    return "Work in progress"
+    return render_template('patient_insurance_claim.html')
+    
 @app.route('/patient/medicalstatistics')
 def medicalStatistics():
     return render_template('resources_hospital.html')
@@ -197,7 +198,7 @@ def sendDiagnosedReport():
     prescription = request.form.get('prescription')
     bedBooking = request.form.get('bedBooking')
     fhirID = request.form.get('FHIRID')
-    
+    reportID = request.form.get('reportID')
     
     print(familyName)
     
@@ -223,6 +224,7 @@ def sendDiagnosedReport():
                 f"Hospital Name: {hospitalName}",
                 f"Doctor Name: {DoctorName}",
                 "Diagnosis = Done",
+                f"Diagnosis Report ID: {reportID}"
                 f"Prescription: {prescription}",
                 f"Bed Requirement: {bedBooking} "
             ]
