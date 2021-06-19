@@ -26,6 +26,9 @@ body {
 .status{
 color: red;
 }
+.requestStatus{
+color: green;
+}
 header {
 	background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(https://drive.google.com/thumbnail?id=16BhSmAKTXAOCts5UVyuM7vYO9VffHGg3);
 	height: 100vh;

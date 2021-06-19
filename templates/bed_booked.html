@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Central Medical Vault for Patients</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/bed_booking_style.css" />
+  </head>
+  <body>
+    <header>
+      <br />
+      <br />
+      <div class="wrapper">
+        <div class="logo">
+          <img
+            src="https://drive.google.com/thumbnail?id=1VWjCXgibmcCG2n0_uxMj0lDH7gp_bK7-"
+            id="logoImage"
+            alt=""
+          />
+          <h2 id="logoHeading">Central Medical Vault for Patients</h2>
+        </div>
+        <ul class="nav-area">
+          <li><a href="https://20.193.232.239:5000/patient/login">Home</a></li>
+        </ul>
+      </div>
+
+      <ul class="nav-area">
+        <h1 class="status" id="textToEdit">Your Status is Pending</h1>
+      </ul>
+
+      <div class="welcome-text">
+        <h1><span>Health</span> is Wealth</h1>
+      </div>
+    </header>
+    <script >
+        const newText = document.getElementById("textToEdit");
+        setTimeout(() => {
+        newText.innerHTML =
+        "Your bed is booked and details are sent to your email id";
+        newText.style.color = "green";
+        }, 5000);
+
+    </script>
+  </body>
+</html>

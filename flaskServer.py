@@ -71,9 +71,28 @@ def patientInfoForm():
 def patientBedBooking():
     return render_template('patient_bed_booking.html')
     
+@app.route('/patient/bed/booking',methods = ['GET','POST'])
+def submitBedBookingRequest():
+    global uidForCheckingStatus
+    uidForCheckingStatus = request.form.get('UniqueMedicalID')
+    
+    return render_template('request_sent_successfully.html') #new change
+    
+@app.route('/patient/claim/insurance',methods = ['GET','POST'])
+def patientClaimInsuranceRequest():
+    return render_template('request_sent_successfully.html') #new change
+    
 @app.route('/patient/bedBooking/status')
 def bedBookingStatus():
-    return render_template('bed_booking_status.html')
+    if uidForCheckingStatus == 'p001abc':
+      print(uidForCheckingStatus)
+      return render_template('bed_booking_status.html')
+    elif uidForCheckingStatus == 'p002pqr':
+      print(uidForCheckingStatus)
+      return render_template('bed_booked.html')
+    else:
+      print(uidForCheckingStatus)
+      return render_template('bed_booking_status.html')
 
 @app.route('/getAccessToken',methods = ['GET','POST'])
 
@@ -156,7 +175,7 @@ def patientNewRequest():
     print(response.json())
     print(uid)
     print(ctScore)
-    return "Success"
+    return render_template('request_sent_successfully.html') # new change
 
 @app.route('/patient/claim')
 def patientInsuranceClaim():
@@ -246,7 +265,7 @@ def sendDiagnosedReport():
     response = requests.put(f"https://cmv.azurehealthcareapis.com/Patient/{fhirID}",headers=header,data=data)
     
     print(response.json())
-    return "Success"
+    return render_template('doctors_request_sent.html') #new change
 
 @app.route('/doctor/medicalstatistics')
 def indMedicalStats():
@@ -258,10 +277,17 @@ def insuranceHome():
   return render_template('insurance_home.html')
   
   
+@app.route('/insurance/request')
+def viewOpenRequests():
+  return render_template('new.html')  
+  
 @app.route('/insurance/approveRequest')
 def approveClaimRequest():
   return render_template('approve_insurance_claim.html')
   
+@app.route('/insurance/approve/claim',methods = ['GET','POST'])
+def approvalCompleted():
+  return render_template('insurance_claim_approved.html') #new Change
 
 
 if __name__ == "__main__":
