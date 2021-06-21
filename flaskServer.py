@@ -2,7 +2,9 @@ from flask import Flask, render_template, request
 import requests
 import json
 
+from datetime  import datetime
 
+now = datetime.now()
 
 app = Flask(__name__)
 
@@ -243,7 +245,8 @@ def sendDiagnosedReport():
                 f"Hospital Name: {hospitalName}",
                 f"Doctor Name: {DoctorName}",
                 "Diagnosis = Done",
-                f"Diagnosis Report ID: {reportID}"
+                f"Diagnosis Time = {now}",
+                f"Diagnosis Report ID: {reportID}",
                 f"Prescription: {prescription}",
                 f"Bed Requirement: {bedBooking} "
             ]
