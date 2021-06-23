@@ -38,6 +38,12 @@ The solution aims in reducing the manual effort by leveraging the AI/ML based Az
 6. Navigate on to the FHIR service on Azure portal, under the diagnostic tab link the log analytics Azure services deployed from the link above. This will inspect and monitor all the actions performed on FHIR database. 
 7. IoT connector can also be linked in case the dat needs to be sensed and entered from the external device. 
 
+### Azure AI Health Bots Configuration:
+1. Deploy the health bots from the documents shared in the reference above. 
+2. Navigate on to the health bot management portal. Take the scenario JSONs from the location in this repo (Central-Medical-Vault/Health Bots/) and create all the three scenarios. 
+3. The web Application should be deployed using the Azure App service and link the scenario using the {scenaioID} with the application. 
+4. The link to the web app then needs to be added in the following location in this repository (Central-Medical-Vault/templates/patient_home.html)
+
 ### Environement Setup (Azure virtual machine)
 
 1. pip3 can be installed on Ubuntu using the APT package manager. To start off, update the package lists as shown.
@@ -73,21 +79,23 @@ sudo service iptables save
 ```bash 
   python3 flaskServer.py
 ```
-### Roles deployed in the Azure API for FHIR:
+9. The link will now land on to the SignIn/SignUp page of the application. This page is common for logging into all three kind of dashboards supported which are: Patients, Hospitals and the Insurance company. The guided steps to navigate can also be referred from the demo link provided below. 
+
+### Roles supported in the solution proposed:
 1. Patient
 2. Hospital
 3. Insurance Company
 
 ### Actions supported by each Role:
 ##### Note: 
-Patient has a Unique Medical ID which always starts with 'p',
-similarly, Doctor's which 'd' and Insurance Company with 'i'.
-#### Patient
-1. The Patient portal will have a homepage through which the patient can navigate between different functionalities.
-2. The Patient has an option to make a request for diagnosis and send the request to FHIR Database, also the patient can view what all request has been made by him/her and prescription provided by the doctor.
-3. There is an option to view hospital's medical resources which are near to the patient's locality.
-4. Once the Doctor approves the patient to make a bed booking request, the Patient can go ahead and raise a request to book a bed in his/her preferred hospital along with an option to check the booking status.
-5. There are three bots to help the patient.
+1. Patients will have to signup with the medical ID starting with the initial 'p', Doctor's with the initial 'd' and Insurance Company with the initial 'i'.
+2. Refer to the demo link below for the navigation guide through the solution developed. 
+#### Patient's Dashboard
+1. The Patient portal will have a dashboard through which the patient can navigate between different functionalities.
+2. The Patient will be able to make a diagnosis request by clicking on the "New Request" and entering the details in the pop up form. The patient will have a choice to select the preferred hospital name and the doctor as well as to enter the symptoms for initial triage. Once the request is submitted, the patient will be able to see the request status in the "Diagnosed Reports" tab. The data will get written to FHIR database.
+3. Once, diagnosed from the doctor's end the patient will be able to see the reports in the "Diagnosed Repots" tab itself. The patient will only have read access to all it's medical records to maintain authenticity. 
+4. The patient will be able to find the medical resources/ take covid assesment/ book lab test using the AI based Aure health bots. 
+5. The patient wll be able to book the bed using the automated tool which will require a check for the hospitalization from the doctor during the diagnosis request itself. No manual process or human efforts will be involved in the bed booking process. 
 6. Patient portal also comes with an option to claim insurance by volunteerly share his/her details with the insurance company and proceed with the protocol.
 
 #### Hospital
