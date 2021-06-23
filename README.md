@@ -22,16 +22,21 @@ The solution aims in reducing the manual effort by leveraging the AI/ML based Az
 ## Steps to run the application:
 
 ### References to deploy Azure Services for the solution:
-1. https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/fhir-paas-portal-quickstart(To deploy the FHIR Service)
-2. https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/tutorial-web-app-write-web-app(FHIR Integration with the Web Application using APIs)
+1. https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/fhir-paas-portal-quickstart (To deploy the FHIR Service)
+2. https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/tutorial-web-app-write-web-app (FHIR Integration with the Web Application using APIs)
 3. https://azure.microsoft.com/en-in/services/virtual-machines (To deploy AZure VMs)
 4. https://docs.microsoft.com/en-us/azure/health-bot/quickstart-createyourhealthcarebot (To deploy Azure Health Bots)
 5. https://docs.microsoft.com/en-us/azure/app-service/overview (To deploy Azure Web App)
 6. https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tutorial (Azure Log Analytics)
 
 ### Azure API for FHIR Configuration:
-1. 
-
+1. The FHIR server needs to be deployed as per the guided steps in the document above. 
+2. Navigate on to the CORS setting on the left pane and enter * for origin and headers. Select all the 6 CRUD operations on the FHIR. 
+3. Define the throughput in the database tab on the left pane.
+4. Register the application in the Azure Active Directory and provide the permission to the solutions URL (Azure-VM-IP:5000) 
+5. Pick the client ID and the tenant ID of the application and add it into the file (Central-Medical-Vault/templates/new.html) for access to FHIR
+6. Navigate on to the FHIR service on Azure portal, under the diagnostic tab link the log analytics Azure services deployed from the link above. This will inspect and monitor all the actions performed on FHIR database. 
+7. IoT connector can also be linked in case the dat needs to be sensed and entered from the external device. 
 
 ### Install PIP for python3
 
