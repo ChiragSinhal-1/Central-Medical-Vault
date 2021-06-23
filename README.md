@@ -13,9 +13,9 @@ As stated in the objective, the web application will act as a central Medical Va
 1. The User/Medical Authority/Third Pary will have an unique medical ID(like Aadhar Number) which will be key in accessing the solution. 
 2. The Users will be able to request for diagnosis and post diagnosis the doctor will be able to upload the reports on the FHIR server. All the changes made will get dynamically reflected on the portals of each individuals.
 3. The User will not have the write access to the document through which the integrity and the authenticity of the reports will be maintained at all times. 
-4. The user will be able to levergae the automated bed booking feature in case of emergency and criticality. Since, the bed booking is automated, the user should have the bed booking check approved from the doctor in the diagnosis step itself. In case, the resources are less than the requests, the tool based on ML algorithms will be able to assign the beds based on severity.  
-5. The solution comes integrated with the AI based Azure Bots to help the user with covid assesment, findind resources and booking the lab tests directly. 
-6. The third party integration like the insurance company, educatioon institutions can be made seamlessly with the FHIR server to access the medical records of an individual for perusal. 
+4. The user will be able to leverage the automated bed booking feature in case of emergency and criticality. Since, the bed booking is automated, the user should have the bed booking check approved from the doctor in the diagnosis step itself. In case, the resources are less than the requests, the tool based on ML algorithms will be able to assign the beds based on severity.  
+5. The solution comes integrated with the AI based Azure Bots to help the user with covid assesment, finding medical resources and booking the lab tests directly. 
+6. The third party integration like the insurance company, education institutions can be made seamlessly with the FHIR server to access the medical records of an individual for perusal. 
 
 The solution aims in reducing the manual effort by leveraging the AI/ML based Azure services while availing the medical help. 
 
@@ -101,20 +101,20 @@ sudo service iptables save
 
 #### Hospital
 1. A Doctor will land on to the  hospital's dashboard and can view all the diagnosis request made by the patients.
-2. After examining the patient, the diagnosis comments can be written on the "Diagnosis Submission" Tab. This is the place from where the data can be written on the FHIR server and will be refelected immediately on the Patient's portal as well. All the details are transitioned seamlessly between the parties. 
+2. After examining the patient, the diagnosis comments can be written on the "Diagnosis Submission" Tab. This is the place from where the data can be written on the FHIR server and will be reflected immediately on the Patient's portal as well. All the details are transitioned seamlessly between the parties. 
 3. Doctor can also see the stock of hospital's medical resources.
 
 #### Insurance Company
-1. This is where the thirs party integration comes into highligt, the insurance company dashboard will have a tab to see the pending requests and the approval request.  
-2. After analysing the request the Insurer can further proceed for the clain reimbursement.
-3. With FHIR, the data is tamper proof which will exempt the thord party from re-validating the medical records reducing the delay in claims. 
+1. This is where the third party integration comes into highlight, the insurance company dashboard will have a tab to see the pending requests and the approval request.
+2. After analysing the request the Insurer can further proceed for the claim reimbursement.
+3. With FHIR, the data is tamper proof which will exempt the third party from re-validating the medical records reducing the delay in claims. 
 4. The same can be extended for ther third parties like education institutions etc. in future versions of solution. 
 
 ## Additional Features:
-1. The automated bed booking facility is a Azure ML based solution which will learn the severity of the request and assign the bed incase the request are more than the resources availble. 
+1. The automated bed booking facility is an Azure ML based solution which will learn the severity of the request and assign the bed incase the request are more than the resources available. 
 2. The medical IDs are unique for an inidividual and can't be assigned again in a lifetime. 
 3. All the medical records will be stored in the FHIR database in the format defined by them. For more details visit (https://hl7.org/FHIR/)
-4. FHIR meets HIPPA regulator and is ISO 27001 certified along with 90 other compliance certifications. 
+4. FHIR meets HIPPA regulatory and is ISO 27001 certified along with 90 other compliance certifications. 
 5. FHIR comes with an IoT connector through which the data can be sent using smart devices. 
 6. The medical records are secured and protected at all times. 
 
