@@ -118,21 +118,12 @@ sudo service iptables save
 
 ![Flow Chart](https://github.com/ChiragSinhal-1/Central-Medical-Vault/blob/master/Azure%20Deployment(images)/Architechture_flow_diagram.png)
 
-
 ## Growth Strategy
-1. Security Enhancement 
-2. Fixed time validity for the KYC
-3. Adding other credible information
+1. Enhanced Integrations 
+2. Machine Based Diagnosis
+3. Enhanced Scalabilty & Security
+4. Cross Platfrom Support
+5. IoT Integrations
 
-
-  
-## Demo
-
-Insert gif or link to demo
-
-  
-## Screenshots
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
-  
+## Demo Recording
+Link: https://drive.google.com/file/d/1xS8ehFfj8BFEvDXAe7RYnQJfUzaUchuX/view?usp=sharing
