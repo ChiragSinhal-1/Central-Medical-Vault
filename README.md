@@ -21,17 +21,14 @@ The solution aims in reducing the manual effort by leveraging the AI/ML based Az
 
 ## Steps to run the application:
 
-### References to deploy Azure Api for FHIR
-1. https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/overview#:~:text=%20What%20is%20Azure%20API%20for%20FHIR%C2%AE%3F%20,Interoperability%20Resources%20%28FHIR%C2%AE%29%205%20%20is...%20More%20
-2. https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/fhir-paas-portal-quickstart
+### References to deploy Azure Services for the solution:
+1. https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/fhir-paas-portal-quickstart(To deploy the FHIR Service)
+2. https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/tutorial-web-app-write-web-app(FHIR Integration with the Web Application using APIs)
+3. https://azure.microsoft.com/en-in/services/virtual-machines (To deploy AZure VMs)
+4. https://docs.microsoft.com/en-us/azure/health-bot/quickstart-createyourhealthcarebot (To deploy Azure Health Bots)
+5. https://docs.microsoft.com/en-us/azure/app-service/overview (To deploy Azure Web App)
+6. https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tutorial (Azure Log Analytics)
 
-### References to deploy Azure Virtual Machine
-1. https://azure.microsoft.com/en-in/overview/what-is-a-virtual-machine/
-2. https://azure.microsoft.com/en-in/services/virtual-machines
-
-### References to deploy Azure Health bots
-1. https://docs.microsoft.com/en-us/azure/health-bot/#:~:text=Azure%20Health%20Bot%20is%20a%20cloud%20platform%20that,AI-powered%20virtual%20health%20assistants.%20About%20Azure%20Health%20Bot
-2. https://azure.microsoft.com/en-in/blog/introducing-azure-health-bot-an-evolution-of-microsoft-healthcare-bot-with-new-functionality/
 ### Azure API for FHIR Configuration:
 1. 
 
