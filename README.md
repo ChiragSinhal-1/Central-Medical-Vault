@@ -1,15 +1,25 @@
-# Central-Medical-Vault
-A brief description of what this project does and who it's for
+# Central Medical Vault
+Azure FHIR services based medical record maintaining system for the efficient use of medical resources across the country. 
 
+## Idea
+The proposed engineered solution aims to build a secure, tamper proof, automated Azure services based centralised medical platform providing a user with an intuitive and hassle free experience while navigating through the medical resources.
 
-## Features
+## Objective
+The objective of the solution is to act as a one stop platform for availing all the medical resources like diagnosis, hospitalisation and lab reports to mention the few. The tamper proof solution will aim to provide a seamless exchange of medical records with the third parties like insurance companies, educational institutions etc. as well. All the features together will create a system and a channel which could bring a difference and protect the health of each individual in the nation. 
 
-- Light/dark mode toggle
-- Live previews
-- Fullscreen mode
-- Cross platform
+## Application
+As stated in the objective, the web application will act as a central Medical Vault for storing all the medical records of an individual. The application comes with the features that aims in changing the future of the healthcare industy. The applications are:
 
-  ## Steps to run the application:
+1. The User/Medical Authority/Third Pary will have an unique medical ID(like Aadhar Number) which will be key in accessing the solution. 
+2. The Users will be able to request for diagnosis and post diagnosis the doctor will be able to upload the reports on the FHIR server. All the changes made will get dynamically reflected on the portals of each individuals.
+3. The User will not have the write access to the document through which the integrity and the authenticity of the reports will be maintained at all times. 
+4. The user will be able to levergae the automated bed booking feature in case of emergency and criticality. Since, the bed booking is automated, the user should have the bed booking check approved from the doctor in the diagnosis step itself. In case, the resources are less than the requests, the tool based on ML algorithms will be able to assign the beds based on severity.  
+5. The solution comes integrated with the AI based Azure Bots to help the user with covid assesment, findind resources and booking the lab tests directly. 
+6. The third party integration like the insurance company, educatioon institutions can be made seamlessly with the FHIR server to access the medical records of an individual for perusal. 
+
+The solution aims in reducing the manual effort by leveraging the AI/ML based Azure services while availing the medical help. 
+
+## Steps to run the application:
 
 ### References to deploy Azure Api for FHIR
 1. https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/overview#:~:text=%20What%20is%20Azure%20API%20for%20FHIR%C2%AE%3F%20,Interoperability%20Resources%20%28FHIR%C2%AE%29%205%20%20is...%20More%20
