@@ -1,5 +1,5 @@
 # Central Medical Vault
-Azure FHIR services based medical record maintaining system for the efficient use of medical resources across the country. 
+Azure FHIR (Fast Healthcare Interoperability Resources) services based medical record maintaining system for the efficient use of medical resources across the country. 
 
 ## Idea
 The proposed engineered solution aims to build a secure, tamper proof, automated Azure services based centralised medical platform providing a user with an intuitive and hassle free experience while navigating through the medical resources.
@@ -97,22 +97,26 @@ sudo service iptables save
 4. The patient will be able to find the medical resources/ take covid assesment/ book lab test using the AI based Aure health bots. 
 5. The patient wll be able to book the bed using the automated tool which will require a check for the hospitalization from the doctor during the diagnosis request itself. No manual process or human efforts will be involved in the bed booking process. 
 6. Patient portal also comes with an option to claim insurance by volunteerly share his/her details with the insurance company and proceed with the protocol.
+7. Additional tabs can be added in future develpements with respect to the third party integrations. 
 
 #### Hospital
-1. A Doctor can login into the hospital's portal and can view all the diagnosis request which has been made by the patients.
-2. After examining the diagnosis report a Doctor can upload the diagnosed report to FHIR database, From there the patint can view the his diagnosed report.
+1. A Doctor will land on to the  hospital's dashboard and can view all the diagnosis request made by the patients.
+2. After examining the patient, the diagnosis comments can be written on the "Diagnosis Submission" Tab. This is the place from where the data can be written on the FHIR server and will be refelected immediately on the Patient's portal as well. All the details are transitioned seamlessly between the parties. 
 3. Doctor can also see the stock of hospital's medical resources.
 
 #### Insurance Company
-1. In the future, if the patient  claims for insurance and raise a request, that request will go to FHIR Database and after signin into FHIR portal the Insurer can view all the requests and analyse them.
-2. After analysing the request the Insurer can further proceed either he/she wants to approve/reject the claim based on the protocols.
+1. This is where the thirs party integration comes into highligt, the insurance company dashboard will have a tab to see the pending requests and the approval request.  
+2. After analysing the request the Insurer can further proceed for the clain reimbursement.
+3. With FHIR, the data is tamper proof which will exempt the thord party from re-validating the medical records reducing the delay in claims. 
+4. The same can be extended for ther third parties like education institutions etc. in future versions of solution. 
 
 ## Additional Features:
-1. The contract initiated by the customer can be terminated by the customer/Bank if the breach is sensed by any of the parties.
-2. The Dashboard can be accessed only by the authorized personas through the email ID which will keep the ledger secured at all times.
-3. All the activities done by any of the users will be transparent to all the users in the blockchain so that every party is aware of all the transactions.
-4. The ledger is secured through the hashing technology which comes with the Blockchain. 
-5. The services can be extended beyond financial institutions depending upon the request and permissions.
+1. The automated bed booking facility is a Azure ML based solution which will learn the severity of the request and assign the bed incase the request are more than the resources availble. 
+2. The medical IDs are unique for an inidividual and can't be assigned again in a lifetime. 
+3. All the medical records will be stored in the FHIR database in the format defined by them. For more details visit (https://hl7.org/FHIR/)
+4. FHIR meets HIPPA regulator and is ISO 27001 certified along with 90 other compliance certifications. 
+5. FHIR comes with an IoT connector through which the data can be sent using smart devices. 
+6. The medical records are secured and protected at all times. 
 
 ## Architectural Flow Chart of the Central Medical Vault:
 
