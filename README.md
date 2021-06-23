@@ -24,7 +24,7 @@ The solution aims in reducing the manual effort by leveraging the AI/ML based Az
 ### References to deploy Azure Services for the solution:
 1. https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/fhir-paas-portal-quickstart (To deploy the FHIR Service)
 2. https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/tutorial-web-app-write-web-app (FHIR Integration with the Web Application using APIs)
-3. https://azure.microsoft.com/en-in/services/virtual-machines (To deploy AZure VMs)
+3. https://azure.microsoft.com/en-in/services/virtual-machines (To deploy Azure VMs)
 4. https://docs.microsoft.com/en-us/azure/health-bot/quickstart-createyourhealthcarebot (To deploy Azure Health Bots)
 5. https://docs.microsoft.com/en-us/azure/app-service/overview (To deploy Azure Web App)
 6. https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tutorial (Azure Log Analytics)
@@ -38,92 +38,38 @@ The solution aims in reducing the manual effort by leveraging the AI/ML based Az
 6. Navigate on to the FHIR service on Azure portal, under the diagnostic tab link the log analytics Azure services deployed from the link above. This will inspect and monitor all the actions performed on FHIR database. 
 7. IoT connector can also be linked in case the dat needs to be sensed and entered from the external device. 
 
-### Install PIP for python3
+### Environement Setup (Azure virtual machine)
 
-Pip3 can be installed on Ubuntu using the APT package manager. To start off, update the package lists as shown.
+1. pip3 can be installed on Ubuntu using the APT package manager. To start off, update the package lists as shown.
 ```bash 
 $ sudo apt update
 ```
 
-To install pip3 run the command:
+2. To install pip3 run the command:
 ```bash 
 $ sudo apt install python3-pip
 ```
-### Install all python libraries on Virtual Machine:
-Install python flask
-
+3. Install all python libraries on Virtual Machine:
 ```bash 
   pip install python3 flask
   cd my-project
 ```
-### Install Git
-Use the following steps to install Git on Ubuntu Linux system. 
+4. Configure GIT and clone the project code in a directory. 
+5. Run the python server (python3 flaskServer.py) and open VM-ipaddress:5000 in your browser.
+6. If the page is not responsive, execute the command to open port 5000 of your virtual machine is as follows:
+    First, you should disable selinux, edit file /etc/sysconfig/selinux so it looks like this: SELINUX=disabled SELINUXTYPE=targeted
 
-Install the software-properties-common package on your system, which contains add-apt-repository command
-```bash 
-  sudo apt install software-properties-common -y
-```
-Add the PPA to your system using the following command.
-```bash 
-  sudo add-apt-repository ppa:git-core/ppa
-```
-Next, install git debian package on your system
- 
-```bash 
-  sudo apt install git -y
-```
- That’s it, Git has been installed on your Ubuntu system.
+    Then you can add the new rule to iptables:
 
-### Setup Git
-Setup the Git user details on your machine, which is used as your identity by the Github or other repository providers.
-
-To setup username and email address system wide, execute the following command. Make sure to change your name and email address with yours
-```bash 
- git config --gloabl user.name "Abc Pqr"
-git config --gloabl user.email "abc@pqr.com"
-```
-
-### Initialise the Git
-
-Navigate to the directory in which you need to initialise the git.
-
-```bash 
- cd my_project
-```
-
-Run Initialise Git Command
-```bash 
- git init
-```
-and git repository is initialised.
-
-
-### Clone the existing project
-
-```bash 
- git clone "project_url"
-```
-
-### Run the python server and open VM-ipaddress:5000 in your browser.
-
-Command to open port 5000 of your virtual machine is as follows:
-
-First, you should disable selinux, edit file /etc/sysconfig/selinux so it looks like this: SELINUX=disabled SELINUXTYPE=targeted
-
-Then you can add the new rule to iptables:
-
-```
-bash iptables -A INPUT -m state --state NEW -p tcp --dport 5000 -j ACCEPT
-```
-
-
-
-Save changes
+    ```
+    bash iptables -A INPUT -m state --state NEW -p tcp --dport 5000 -j ACCEPT
+    ```
+7. Save changes
 ```
 sudo service iptables save
 ```
 
-Command to run the python server is as follows - 
+8. Re-run the command to start the python server is as follows - 
 ```bash 
   python3 flaskServer.py
 ```
